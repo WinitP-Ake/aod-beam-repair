@@ -1,0 +1,118 @@
+\begin{table}[t]\centering\small
+\caption{E1 pooled: tiny tables, exact optimum as reference}
+\begin{tabular}{llllllll}
+\toprule
+method & runs & \% at ref & mean gap & worst gap & excess cut vs greedy & ms/run & x greedy time \\
+\midrule
+greedy & 300 & 83.0 & 1.118 & 4.00 & 0\% & 0.08 & 1.0 \\
+greedy+clean & 300 & 86.7 & 1.095 & 4.00 & 16\% & 0.08 & 1.1 \\
+greedy+clean+swap & 300 & 89.0 & 1.085 & 4.00 & 25\% & 0.14 & 1.9 \\
+beam4 & 300 & 92.0 & 1.060 & 2.67 & 44\% & 0.16 & 2.2 \\
+beam4+clean & 300 & 92.7 & 1.052 & 2.67 & 51\% & 0.17 & 2.3 \\
+beam16 & 300 & 96.7 & 1.022 & 2.67 & 81\% & 0.32 & 4.2 \\
+beam16+clean & 300 & 97.0 & 1.021 & 2.67 & 81\% & 0.32 & 4.3 \\
+beam16+clean+swap & 300 & 97.0 & 1.021 & 2.67 & 81\% & 0.37 & 4.9 \\
+\bottomrule
+\end{tabular}\end{table}
+
+\begin{table}[t]\centering\small
+\caption{E1 by aggregate}
+\begin{tabular}{lllllllll}
+\toprule
+agg & method & runs & \% at ref & mean gap & worst gap & excess cut vs greedy & ms/run & x greedy time \\
+\midrule
+avg & greedy & 100 & 86.0 & 1.079 & 4.00 & 0\% & 0.08 & 1.0 \\
+avg & greedy+clean & 100 & 89.0 & 1.068 & 4.00 & 14\% & 0.09 & 1.2 \\
+avg & greedy+clean+swap & 100 & 91.0 & 1.059 & 4.00 & 27\% & 0.15 & 1.9 \\
+avg & beam4 & 100 & 96.0 & 1.013 & 1.50 & 77\% & 0.16 & 2.1 \\
+avg & beam4+clean & 100 & 96.0 & 1.013 & 1.50 & 77\% & 0.17 & 2.2 \\
+avg & beam16 & 100 & 99.0 & 1.002 & 1.25 & 95\% & 0.33 & 4.3 \\
+avg & beam16+clean & 100 & 99.0 & 1.002 & 1.25 & 95\% & 0.34 & 4.4 \\
+avg & beam16+clean+swap & 100 & 99.0 & 1.002 & 1.25 & 95\% & 0.38 & 5.0 \\
+sum & greedy & 100 & 77.0 & 1.196 & 2.67 & 0\% & 0.08 & 1.0 \\
+sum & greedy+clean & 100 & 80.0 & 1.165 & 2.67 & 11\% & 0.08 & 1.1 \\
+sum & greedy+clean+swap & 100 & 81.0 & 1.162 & 2.67 & 13\% & 0.14 & 1.9 \\
+sum & beam4 & 100 & 82.0 & 1.161 & 2.67 & 15\% & 0.17 & 2.3 \\
+sum & beam4+clean & 100 & 83.0 & 1.140 & 2.67 & 24\% & 0.18 & 2.4 \\
+sum & beam16 & 100 & 91.0 & 1.062 & 2.67 & 68\% & 0.32 & 4.2 \\
+sum & beam16+clean & 100 & 92.0 & 1.059 & 2.67 & 69\% & 0.32 & 4.2 \\
+sum & beam16+clean+swap & 100 & 92.0 & 1.059 & 2.67 & 69\% & 0.37 & 4.9 \\
+median & greedy & 100 & 86.0 & 1.079 & 2.33 & 0\% & 0.07 & 1.0 \\
+median & greedy+clean & 100 & 91.0 & 1.052 & 2.33 & 29\% & 0.08 & 1.1 \\
+median & greedy+clean+swap & 100 & 95.0 & 1.034 & 2.33 & 54\% & 0.13 & 1.8 \\
+median & beam4 & 100 & 98.0 & 1.006 & 1.33 & 92\% & 0.16 & 2.1 \\
+median & beam4+clean & 100 & 99.0 & 1.003 & 1.33 & 96\% & 0.16 & 2.2 \\
+median & beam16 & 100 & 100.0 & 1.000 & 1.00 & 100\% & 0.31 & 4.1 \\
+median & beam16+clean & 100 & 100.0 & 1.000 & 1.00 & 100\% & 0.31 & 4.2 \\
+median & beam16+clean+swap & 100 & 100.0 & 1.000 & 1.00 & 100\% & 0.36 & 4.8 \\
+\bottomrule
+\end{tabular}\end{table}
+
+\begin{table}[t]\centering\small
+\caption{E4 noise sweep, best-known reference}
+\begin{tabular}{llllllllll}
+\toprule
+agg & noise & method & runs & \% at ref & mean gap & worst gap & excess cut vs greedy & ms/run & x greedy time \\
+\midrule
+avg & 0.05 & greedy & 25 & 100.0 & 1.000 & 1.00 & n/a & 0.22 & 1.0 \\
+avg & 0.05 & greedy+clean & 25 & 100.0 & 1.000 & 1.00 & n/a & 0.22 & 1.0 \\
+avg & 0.05 & beam16 & 25 & 100.0 & 1.000 & 1.00 & n/a & 0.44 & 2.0 \\
+avg & 0.05 & beam16+clean & 25 & 100.0 & 1.000 & 1.00 & n/a & 0.45 & 2.1 \\
+avg & 0.1 & greedy & 25 & 100.0 & 1.000 & 1.00 & n/a & 0.23 & 1.0 \\
+avg & 0.1 & greedy+clean & 25 & 100.0 & 1.000 & 1.00 & n/a & 0.24 & 1.0 \\
+avg & 0.1 & beam16 & 25 & 100.0 & 1.000 & 1.00 & n/a & 0.70 & 3.0 \\
+avg & 0.1 & beam16+clean & 25 & 100.0 & 1.000 & 1.00 & n/a & 0.72 & 3.1 \\
+avg & 0.15 & greedy & 25 & 100.0 & 1.000 & 1.00 & n/a & 0.28 & 1.0 \\
+avg & 0.15 & greedy+clean & 25 & 100.0 & 1.000 & 1.00 & n/a & 0.29 & 1.0 \\
+avg & 0.15 & beam16 & 25 & 100.0 & 1.000 & 1.00 & n/a & 1.21 & 4.3 \\
+avg & 0.15 & beam16+clean & 25 & 100.0 & 1.000 & 1.00 & n/a & 1.21 & 4.4 \\
+avg & 0.2 & greedy & 25 & 100.0 & 1.000 & 1.00 & n/a & 0.26 & 1.0 \\
+avg & 0.2 & greedy+clean & 25 & 100.0 & 1.000 & 1.00 & n/a & 0.26 & 1.0 \\
+avg & 0.2 & beam16 & 25 & 100.0 & 1.000 & 1.00 & n/a & 0.92 & 3.6 \\
+avg & 0.2 & beam16+clean & 25 & 100.0 & 1.000 & 1.00 & n/a & 0.94 & 3.6 \\
+avg & 0.3 & greedy & 25 & 92.0 & 1.059 & 2.33 & 0\% & 0.53 & 1.0 \\
+avg & 0.3 & greedy+clean & 25 & 92.0 & 1.019 & 1.33 & 60\% & 0.54 & 1.0 \\
+avg & 0.3 & beam16 & 25 & 100.0 & 1.000 & 1.00 & 100\% & 4.03 & 7.6 \\
+avg & 0.3 & beam16+clean & 25 & 100.0 & 1.000 & 1.00 & 100\% & 4.08 & 7.7 \\
+median & 0.05 & greedy & 25 & 96.0 & 1.210 & 6.25 & 0\% & 0.35 & 1.0 \\
+median & 0.05 & greedy+clean & 25 & 96.0 & 1.030 & 1.75 & 86\% & 0.36 & 1.0 \\
+median & 0.05 & beam16 & 25 & 96.0 & 1.220 & 6.50 & -5\% & 2.09 & 6.0 \\
+median & 0.05 & beam16+clean & 25 & 96.0 & 1.120 & 4.00 & 43\% & 2.10 & 6.0 \\
+median & 0.1 & greedy & 25 & 96.0 & 1.120 & 4.00 & 0\% & 0.38 & 1.0 \\
+median & 0.1 & greedy+clean & 25 & 96.0 & 1.040 & 2.00 & 67\% & 0.40 & 1.0 \\
+median & 0.1 & beam16 & 25 & 96.0 & 1.013 & 1.33 & 89\% & 2.15 & 5.6 \\
+median & 0.1 & beam16+clean & 25 & 96.0 & 1.013 & 1.33 & 89\% & 2.16 & 5.6 \\
+median & 0.15 & greedy & 25 & 92.0 & 1.053 & 2.00 & 0\% & 0.40 & 1.0 \\
+median & 0.15 & greedy+clean & 25 & 92.0 & 1.053 & 2.00 & 0\% & 0.40 & 1.0 \\
+median & 0.15 & beam16 & 25 & 100.0 & 1.000 & 1.00 & 100\% & 2.41 & 6.1 \\
+median & 0.15 & beam16+clean & 25 & 100.0 & 1.000 & 1.00 & 100\% & 2.42 & 6.1 \\
+median & 0.2 & greedy & 25 & 92.0 & 1.400 & 7.00 & 0\% & 0.43 & 1.0 \\
+median & 0.2 & greedy+clean & 25 & 92.0 & 1.160 & 4.50 & 60\% & 0.44 & 1.0 \\
+median & 0.2 & beam16 & 25 & 100.0 & 1.000 & 1.00 & 100\% & 1.92 & 4.5 \\
+median & 0.2 & beam16+clean & 25 & 100.0 & 1.000 & 1.00 & 100\% & 1.93 & 4.5 \\
+median & 0.3 & greedy & 25 & 84.0 & 1.173 & 3.00 & 0\% & 0.58 & 1.0 \\
+median & 0.3 & greedy+clean & 25 & 84.0 & 1.103 & 2.00 & 44\% & 0.59 & 1.0 \\
+median & 0.3 & beam16 & 25 & 92.0 & 1.080 & 2.75 & 50\% & 4.63 & 8.0 \\
+median & 0.3 & beam16+clean & 25 & 92.0 & 1.040 & 1.75 & 75\% & 4.67 & 8.0 \\
+\bottomrule
+\end{tabular}\end{table}
+
+\begin{table}[t]\centering\small
+\caption{E5 beam-width trade-off, avg, 10\% noise}
+\begin{tabular}{llllllll}
+\toprule
+method & runs & \% at ref & mean gap & worst gap & excess cut vs greedy & ms/run & x greedy time \\
+\midrule
+k=1 & 25 & 100.0 & 1.000 & 1.00 & n/a & 0.33 & 1.0 \\
+k=2 & 25 & 100.0 & 1.000 & 1.00 & n/a & 0.39 & 1.2 \\
+k=4 & 25 & 100.0 & 1.000 & 1.00 & n/a & 0.51 & 1.6 \\
+k=8 & 25 & 100.0 & 1.000 & 1.00 & n/a & 0.74 & 2.3 \\
+k=16 & 25 & 100.0 & 1.000 & 1.00 & n/a & 1.13 & 3.5 \\
+k=32 & 25 & 100.0 & 1.000 & 1.00 & n/a & 1.62 & 4.9 \\
+k=64 & 25 & 100.0 & 1.000 & 1.00 & n/a & 1.84 & 5.6 \\
+k=1+clean & 25 & 100.0 & 1.000 & 1.00 & n/a & 0.34 & 1.0 \\
+k=4+clean & 25 & 100.0 & 1.000 & 1.00 & n/a & 0.52 & 1.6 \\
+k=16+clean & 25 & 100.0 & 1.000 & 1.00 & n/a & 1.14 & 3.5 \\
+\bottomrule
+\end{tabular}\end{table}
+

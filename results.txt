@@ -1,0 +1,141 @@
+
+=== E1: tiny random tables, ground truth = exact BFS ===
+agg           method        runs  %at_ref  mean_gap    ms/run
+avg           greedy         100     86.0     1.079      0.08
+avg           greedy+clean   100     89.0     1.068      0.09
+avg           greedy+clean+swap   100     91.0     1.059      0.15
+avg           beam4          100     96.0     1.013      0.16
+avg           beam4+clean    100     96.0     1.013      0.17
+avg           beam16         100     99.0     1.002      0.33
+avg           beam16+clean   100     99.0     1.002      0.34
+avg           beam16+clean+swap   100     99.0     1.002      0.38
+sum           greedy         100     77.0     1.196      0.08
+sum           greedy+clean   100     80.0     1.165      0.08
+sum           greedy+clean+swap   100     81.0     1.162      0.14
+sum           beam4          100     82.0     1.161      0.17
+sum           beam4+clean    100     83.0     1.140      0.18
+sum           beam16         100     91.0     1.062      0.32
+sum           beam16+clean   100     92.0     1.059      0.32
+sum           beam16+clean+swap   100     92.0     1.059      0.37
+median        greedy         100     86.0     1.079      0.07
+median        greedy+clean   100     91.0     1.052      0.08
+median        greedy+clean+swap   100     95.0     1.034      0.13
+median        beam4          100     98.0     1.006      0.16
+median        beam4+clean    100     99.0     1.003      0.16
+median        beam16         100    100.0     1.000      0.31
+median        beam16+clean   100    100.0     1.000      0.31
+median        beam16+clean+swap   100    100.0     1.000      0.36
+  saved e1_results.csv
+
+Smallest greedy failure (avg, 8 tuples): greedy=4, optimal=3
+rows (group, value): [(0, 3), (0, 8), (1, 13), (2, 1), (2, 17), (3, 2), (3, 7), (3, 8)]
+
+=== E4: noise sweep (40 tuples, 4 groups; reference = best known) ===
+  avg     noise=0.05  violating instances: 25/25
+  avg     noise=0.1   violating instances: 25/25
+  avg     noise=0.15  violating instances: 25/25
+  avg     noise=0.2   violating instances: 25/25
+  avg     noise=0.3   violating instances: 25/25
+  median  noise=0.05  violating instances: 25/25
+  median  noise=0.1   violating instances: 25/25
+  median  noise=0.15  violating instances: 25/25
+  median  noise=0.2   violating instances: 25/25
+  median  noise=0.3   violating instances: 25/25
+agg           noise         method        runs  %at_ref  mean_gap    ms/run
+avg           0.05          greedy          25    100.0     1.000      0.22
+avg           0.05          greedy+clean    25    100.0     1.000      0.22
+avg           0.05          greedy+clean+swap    25    100.0     1.000      0.26
+avg           0.05          beam4           25    100.0     1.000      0.27
+avg           0.05          beam4+clean     25    100.0     1.000      0.28
+avg           0.05          beam16          25    100.0     1.000      0.44
+avg           0.05          beam16+clean    25    100.0     1.000      0.45
+avg           0.05          beam16+clean+swap    25    100.0     1.000      0.47
+avg           0.1           greedy          25    100.0     1.000      0.23
+avg           0.1           greedy+clean    25    100.0     1.000      0.24
+avg           0.1           greedy+clean+swap    25    100.0     1.000      0.29
+avg           0.1           beam4           25    100.0     1.000      0.34
+avg           0.1           beam4+clean     25    100.0     1.000      0.35
+avg           0.1           beam16          25    100.0     1.000      0.70
+avg           0.1           beam16+clean    25    100.0     1.000      0.72
+avg           0.1           beam16+clean+swap    25    100.0     1.000      0.77
+avg           0.15          greedy          25    100.0     1.000      0.28
+avg           0.15          greedy+clean    25    100.0     1.000      0.29
+avg           0.15          greedy+clean+swap    25    100.0     1.000      0.39
+avg           0.15          beam4           25    100.0     1.000      0.50
+avg           0.15          beam4+clean     25    100.0     1.000      0.51
+avg           0.15          beam16          25    100.0     1.000      1.21
+avg           0.15          beam16+clean    25    100.0     1.000      1.21
+avg           0.15          beam16+clean+swap    25    100.0     1.000      1.31
+avg           0.2           greedy          25    100.0     1.000      0.26
+avg           0.2           greedy+clean    25    100.0     1.000      0.26
+avg           0.2           greedy+clean+swap    25    100.0     1.000      0.33
+avg           0.2           beam4           25    100.0     1.000      0.42
+avg           0.2           beam4+clean     25    100.0     1.000      0.42
+avg           0.2           beam16          25    100.0     1.000      0.92
+avg           0.2           beam16+clean    25    100.0     1.000      0.94
+avg           0.2           beam16+clean+swap    25    100.0     1.000      1.00
+avg           0.3           greedy          25     92.0     1.059      0.53
+avg           0.3           greedy+clean    25     92.0     1.019      0.54
+avg           0.3           greedy+clean+swap    25     96.0     1.013      1.12
+avg           0.3           beam4           25    100.0     1.000      1.29
+avg           0.3           beam4+clean     25    100.0     1.000      1.30
+avg           0.3           beam16          25    100.0     1.000      4.03
+avg           0.3           beam16+clean    25    100.0     1.000      4.08
+avg           0.3           beam16+clean+swap    25    100.0     1.000      4.55
+median        0.05          greedy          25     96.0     1.210      0.35
+median        0.05          greedy+clean    25     96.0     1.030      0.36
+median        0.05          greedy+clean+swap    25    100.0     1.000      0.45
+median        0.05          beam4           25     96.0     1.210      0.78
+median        0.05          beam4+clean     25     96.0     1.030      0.79
+median        0.05          beam16          25     96.0     1.220      2.09
+median        0.05          beam16+clean    25     96.0     1.120      2.10
+median        0.05          beam16+clean+swap    25    100.0     1.000      2.25
+median        0.1           greedy          25     96.0     1.120      0.38
+median        0.1           greedy+clean    25     96.0     1.040      0.40
+median        0.1           greedy+clean+swap    25     96.0     1.027      0.61
+median        0.1           beam4           25     96.0     1.120      0.91
+median        0.1           beam4+clean     25     96.0     1.040      0.91
+median        0.1           beam16          25     96.0     1.013      2.15
+median        0.1           beam16+clean    25     96.0     1.013      2.16
+median        0.1           beam16+clean+swap    25    100.0     1.000      2.35
+median        0.15          greedy          25     92.0     1.053      0.40
+median        0.15          greedy+clean    25     92.0     1.053      0.40
+median        0.15          greedy+clean+swap    25     92.0     1.053      0.69
+median        0.15          beam4           25     96.0     1.013      0.86
+median        0.15          beam4+clean     25     96.0     1.013      0.86
+median        0.15          beam16          25    100.0     1.000      2.41
+median        0.15          beam16+clean    25    100.0     1.000      2.42
+median        0.15          beam16+clean+swap    25    100.0     1.000      2.66
+median        0.2           greedy          25     92.0     1.400      0.43
+median        0.2           greedy+clean    25     92.0     1.160      0.44
+median        0.2           greedy+clean+swap    25     92.0     1.080      0.65
+median        0.2           beam4           25     92.0     1.400      1.10
+median        0.2           beam4+clean     25     92.0     1.160      1.10
+median        0.2           beam16          25    100.0     1.000      1.92
+median        0.2           beam16+clean    25    100.0     1.000      1.93
+median        0.2           beam16+clean+swap    25    100.0     1.000      2.10
+median        0.3           greedy          25     84.0     1.173      0.58
+median        0.3           greedy+clean    25     84.0     1.103      0.59
+median        0.3           greedy+clean+swap    25     92.0     1.033      1.06
+median        0.3           beam4           25     88.0     1.103      1.52
+median        0.3           beam4+clean     25     88.0     1.053      1.53
+median        0.3           beam16          25     92.0     1.080      4.63
+median        0.3           beam16+clean    25     92.0     1.040      4.67
+median        0.3           beam16+clean+swap    25     96.0     1.010      5.12
+  saved e4_results.csv
+
+=== E5: beam-width trade-off (50 tuples, avg, noise 10%; reference = best known) ===
+  violating instances: 25/25
+method        runs  %at_ref  mean_gap    ms/run
+k=1             25    100.0     1.000      0.33
+k=2             25    100.0     1.000      0.39
+k=4             25    100.0     1.000      0.51
+k=8             25    100.0     1.000      0.74
+k=16            25    100.0     1.000      1.13
+k=32            25    100.0     1.000      1.62
+k=64            25    100.0     1.000      1.84
+k=1+clean       25    100.0     1.000      0.34
+k=4+clean       25    100.0     1.000      0.52
+k=16+clean      25    100.0     1.000      1.14
+  saved e5_results.csv
+  saved e5_tradeoff.png
