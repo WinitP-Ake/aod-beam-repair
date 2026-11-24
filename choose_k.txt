@@ -1,0 +1,32 @@
+
+(a,b) Fixed k on 300 E1 tables
+   k  raw%opt    avg%opt    sum%opt median%opt  all%opt  %proved    evals
+   1     83.0       89.0       80.0       91.0     86.7     61.0       23
+   2     87.0       93.0       81.0       95.0     89.7     62.7       34
+   4     92.0       96.0       83.0       99.0     92.7     63.0       52
+   8     94.7       98.0       87.0      100.0     95.0     68.3       75
+  16     96.7       99.0       92.0      100.0     97.0     82.3       96
+  32     98.0      100.0       94.0      100.0     98.0     84.3      125
+  64     99.0      100.0       97.0      100.0     99.0     90.3      153
+ 128     99.3      100.0       99.0      100.0     99.7     96.3      176
+  (raw%opt = beam without cleanup; must be 83.0 at k=1 and 96.7 at k=16)
+
+(c) Iterative doubling (beam + cleanup), work relative to fixed k=16
+strategy                 %opt  %proved     work   xk16  mean final k
+double m=1 +LB           90.0     62.7       49   0.50           1.4
+double m=2 +LB           93.3     65.0       99   1.03           2.7
+double m=3 +LB           96.0     71.3      169   1.76           5.2
+double m=4 +LB           97.7     84.7      270   2.81           9.3
+double m=1               90.0     62.7       60   0.63           2.1
+double m=2               93.3     65.0      128   1.33           4.8
+double m=3               96.0     71.3      228   2.37          11.5
+double m=4               97.7     84.7      363   3.77          23.5
+
+Smallest k reaching the exact optimum (beam + cleanup), k* per table
+agg     median k*  p90 k*  max k*  %k*<=16  %non-monotone
+avg             1       2      32     99.0            0.0
+sum             1      16    >128     92.0            0.0
+median          1       1       8    100.0            0.0
+all             1       4    >128     97.0            0.0
+
+  saved figures/fig4_choose_k.png
